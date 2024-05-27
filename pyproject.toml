@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "chattts"
+version = "0.1.0"
+description = "使用ChatTTS将文字合成为语音，同时支持对外提供API接口。"
+authors = []
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+soundfile = "^0.12.1"
+python-dotenv = "^1.0.1"
+flask = "^3.0.3"
+waitress = "^3.0.0"
+modelscope = "^1.15.0"
+langsegment = "^0.3.3"
+omegaconf = "^2.3.0"
+tokenizers = "^0.19.1"
+transformers = "^4.41.2"
+torch = "2.1.2"
+torchaudio = "2.1.2"
+vocos = "^0.1.0"
+vector-quantize-pytorch = "^1.14.24"
+numpy = { version = "^1.26.4" }
+
+[tool.poetry.group.dev.dependencies]
+pip-tools = "^7.4.1"
+black = "*"
+ruff = "*"
+
+# 自定义索引包地址
+[[tool.poetry.source]]
+name = "pytorch-gpu-src"
+url = "https://download.pytorch.org/whl/cu118"
+priority = "explicit"
+
+# 控制black格式化选项
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+skip-magic-trailing-comma = true
+exclude = '''
+/(
+    ChatTTS
+    | .*
+    | build
+    | dist
+    | migrations
+    | __pycache__
+)/
+'''
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
