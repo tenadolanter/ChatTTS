@@ -44,3 +44,17 @@ pip-compile pyproject.toml
 ```
 
 2、如何生成 exe 文件
+
+(1)在 window 下生成
+
+(2)在 mac 下生成
+
+```
+# 安装依赖
+pip install pyinstaller
+
+# 添加windows.spec文件，并更改文件位置
+
+# 安装依赖
+pyinstaller windows.spec
+```
